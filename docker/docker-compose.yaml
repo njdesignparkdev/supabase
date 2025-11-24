@@ -14,7 +14,7 @@ services:
     image: supabase/studio:2025.11.10-sha-5291fe3
     restart: unless-stopped
     ports:
-      - 54323:3000
+      - 3003:3000
     healthcheck:
       test:
         [
