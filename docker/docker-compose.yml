@@ -28,7 +28,7 @@ services:
       retries: 3
     depends_on:
       analytics:
-        condition: service_healthy
+        condition: service_started
     environment:
       # Binds nestjs listener to both IPv4 and IPv6 network interfaces
       HOSTNAME: "::"
@@ -74,7 +74,7 @@ services:
       - ./volumes/api/kong.yml:/home/kong/temp.yml:ro,z
     depends_on:
       analytics:
-        condition: service_healthy
+        condition: service_started
     environment:
       KONG_DATABASE: "off"
       KONG_DECLARATIVE_CONFIG: /home/kong/kong.yml
@@ -335,7 +335,7 @@ services:
       - ./volumes/functions:/home/deno/functions:Z
     depends_on:
       analytics:
-        condition: service_healthy
+        condition: service_started
     environment:
       JWT_SECRET: ${JWT_SECRET}
       SUPABASE_URL: http://kong:8000
