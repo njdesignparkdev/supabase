@@ -1,0 +1,23 @@
+# Coolify-specific override for docker-compose.yml
+# This makes the vector service dependency optional for db service
+# Use with: docker compose -f docker-compose.yml -f docker-compose.coolify.yml up
+
+version: '3.8'
+
+services:
+  db:
+    depends_on:
+      # Remove strict dependency on vector healthcheck
+      # Vector may fail in Coolify due to Docker socket restrictions
+      vector:
+        condition: service_started  # Changed from service_healthy to service_started
+
+  vector:
+    # Make healthcheck less strict for Coolify
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9001/health"]
+      timeout: 10s
+      interval: 10s
+      retries: 5
+      start_period: 30s  # Give more time to start
+
