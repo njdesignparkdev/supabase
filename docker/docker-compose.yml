@@ -112,7 +112,7 @@ services:
         # Disable this if you are using an external Postgres database
         condition: service_healthy
       analytics:
-        condition: service_healthy
+        condition: service_started
     environment:
       GOTRUE_API_HOST: 0.0.0.0
       GOTRUE_API_PORT: 9999
@@ -182,7 +182,7 @@ services:
         # Disable this if you are using an external Postgres database
         condition: service_healthy
       analytics:
-        condition: service_healthy
+        condition: service_started
     environment:
       PGRST_DB_URI: postgres://authenticator:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
       PGRST_DB_SCHEMAS: ${PGRST_DB_SCHEMAS}
@@ -206,7 +206,7 @@ services:
         # Disable this if you are using an external Postgres database
         condition: service_healthy
       analytics:
-        condition: service_healthy
+        condition: service_started
     healthcheck:
       test:
         [
@@ -317,7 +317,7 @@ services:
         # Disable this if you are using an external Postgres database
         condition: service_healthy
       analytics:
-        condition: service_healthy
+        condition: service_started
     environment:
       PG_META_PORT: 8080
       PG_META_DB_HOST: ${POSTGRES_HOST}
@@ -518,7 +518,7 @@ services:
       db:
         condition: service_healthy
       analytics:
-        condition: service_healthy
+        condition: service_started
     environment:
       PORT: 4000
       POSTGRES_PORT: ${POSTGRES_PORT}
