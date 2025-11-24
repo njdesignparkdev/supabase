@@ -355,8 +355,9 @@ services:
     container_name: supabase-analytics
     image: supabase/logflare:1.22.6
     restart: unless-stopped
-    ports:
-      - 4000:4000
+    # Port mapping removed - analytics is only accessed internally via Docker network
+    # ports:
+    #   - 4000:4000
     # Uncomment to use Big Query backend for analytics
     # volumes:
     #   - type: bind
