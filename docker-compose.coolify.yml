@@ -1,0 +1,12 @@
+# Docker Compose file for Coolify deployment
+# This is a simplified version that Coolify can use
+# Coolify will handle the build context and environment variables
+
+version: '3.8'
+
+services:
+  # Note: In Coolify, you should:
+  # 1. Set Build Context to: /docker
+  # 2. Use the docker-compose.yml file from the docker/ directory
+  # 3. Add all environment variables from docker/.env.example in Coolify's environment section
+

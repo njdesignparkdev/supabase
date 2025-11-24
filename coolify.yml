@@ -1,0 +1,8 @@
+# Coolify configuration for Supabase Docker Compose deployment
+# This tells Coolify to use Docker Compose instead of auto-detecting the app type
+
+version: '3.8'
+
+# Coolify will use the docker-compose.yml file in the docker/ directory
+# Make sure to set the build context to the docker directory in Coolify settings
+

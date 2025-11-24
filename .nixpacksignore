@@ -1,0 +1,12 @@
+# Ignore this directory for Nixpacks auto-detection
+# This prevents Coolify from trying to build this as a Deno/Node app
+# We want to use Docker Compose instead
+
+apps/
+packages/
+examples/
+*.ts
+*.tsx
+deno.json
+import_map.json
+
